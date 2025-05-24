@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar - Солнечные электростанции под ключ</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --solar-yellow: #FFD700;
+            --tech-blue: #005BAA;
+            --eco-green: #2E8B57;
+            --light-blue: #0077CC;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: white;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Gilroy', 'Open Sans', sans-serif;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--tech-blue);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--tech-blue);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--solar-yellow);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--solar-yellow);
+            color: var(--dark-gray);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #e6c200;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--tech-blue);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #004a8f;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--tech-blue);
+        }
+
+        .logo-text span {
+            color: var(--solar-yellow);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--solar-yellow);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 91, 170, 0.8), rgba(0, 91, 170, 0.8)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--solar-yellow);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .feature-card:hover .feature-img img {
+            transform: scale(1.1);
+        }
+
+        .feature-content {
+            padding: 20px;
+        }
+
+        .feature-content h3 {
+            margin-bottom: 10px;
+            color: var(--tech-blue);
+        }
+
+        /* Calculator Section */
+        .calculator {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .calculator-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .calculator-form {
+            flex: 1;
+            min-width: 300px;
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .calculator-form h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .calculator-result {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .result-card {
+            background: var(--tech-blue);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-card h3 {
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Green Tariff Section */
+        .green-tariff {
+            padding: 80px 0;
+            background-color: var(--eco-green);
+            color: white;
+        }
+
+        .green-tariff h2,
+        .green-tariff h3 {
+            color: white;
+        }
+
+        .tariff-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .tariff-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .tariff-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .tariff-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .steps {
+            margin-top: 40px;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--solar-yellow);
+            color: var(--dark-gray);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            margin-right: 15px;
+            color: var(--solar-yellow);
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .contact-form h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--tech-blue);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--solar-yellow);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--solar-yellow);
+            color: var(--dark-gray);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                transition: transform 0.3s;
+            }
+
+            nav.active {
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text">SOLAR<span>ENERGY</span></div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#tariff">Зеленый тариф</a></li>
+                    <li><a href="#projects">Наши клиенты</a></li>
+                    <li><a href="#steps">5 шагов</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Солнечная электростанция — идеальное вложение средств</h1>
+            <p>Обеспечьте свою энергонезависимость и получайте пассивный доход с нашей помощью</p>
+            <a href="#calculator" class="btn">Рассчитать стоимость</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши услуги</h2>
+                <p>Комплексные решения для вашей энергонезависимости</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="5d40a4792400009d17936f39.jpeg"
+                            alt="Солнечные панели">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Проектирование и монтаж СЭС</h3>
+                        <p>Полный цикл работ от проектирования до ввода в эксплуатацию солнечных электростанций для дома
+                            и бизнеса.</p>
+                        <a href="#" class="btn btn-secondary">Подробнее</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="XXL_height.webp"
+                            alt="Зеленый тариф">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Подключение к "зеленому тарифу"</h3>
+                        <p>Полное сопровождение оформления документов для продажи излишков электроэнергии в общую сеть.
+                        </p>
+                        <a href="#" class="btn btn-secondary">Подробнее</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="000051331381.jpg"
+                            alt="Техническое обслуживание">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Техническое обслуживание</h3>
+                        <p>Регулярные проверки, очистка панелей, замена комплектующих и гарантийное обслуживание
+                            оборудования.</p>
+                        <a href="#" class="btn btn-secondary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <div class="section-title">
+                <h2>Калькулятор солнечной электростанции</h2>
+                <p>Рассчитайте стоимость и окупаемость вашей будущей СЭС</p>
+            </div>
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <h3>Введите параметры</h3>
+                    <div class="form-group">
+                        <label for="region">Регион</label>
+                        <select id="region">
+                            <option value="">Выберите регион</option>
+                            <option value="south">Южные регионы</option>
+                            <option value="center">Центральные регионы</option>
+                            <option value="north">Северные регионы</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="area">Площадь для установки (м²)</label>
+                        <input type="number" id="area" placeholder="Например, 50">
+                    </div>
+                    <div class="form-group">
+                        <label for="consumption">Среднее потребление (кВт·ч/мес)</label>
+                        <input type="number" id="consumption" placeholder="Например, 300">
+                    </div>
+                    <button class="btn" style="width: 100%;">Рассчитать</button>
+                </div>
+                <div class="calculator-result">
+                    <div class="result-card">
+                        <h3>Результаты расчета</h3>
+                        <div class="result-item">
+                            <span>Мощность СЭС:</span>
+                            <strong>5 кВт</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Стоимость оборудования:</span>
+                            <strong>350 000 ₽</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Срок окупаемости:</span>
+                            <strong>5 лет</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Ежемесячная экономия:</span>
+                            <strong>7 500 ₽</strong>
+                        </div>
+                        <button class="btn" style="width: 100%; margin-top: 20px;">Оставить заявку</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Green Tariff Section -->
+    <section class="green-tariff" id="tariff">
+        <div class="container">
+            <div class="section-title">
+                <h2>Зеленый тариф</h2>
+                <p>Продавайте излишки электроэнергии по выгодным тарифам</p>
+            </div>
+            <div class="tariff-container">
+                <div class="tariff-content">
+                    <h3>Гарантированное оформление "зеленого тарифа" за 30 дней</h3>
+                    <p>Государственная программа поддержки возобновляемой энергетики позволяет владельцам солнечных
+                        электростанций получать дополнительный доход от продажи излишков выработанной электроэнергии в
+                        общую сеть.</p>
+                    <p>Мы предоставляем полный комплекс услуг по оформлению "зеленого тарифа" — от сбора необходимых
+                        документов до заключения договора с энергосбытовой компанией.</p>
+
+                    <div class="steps">
+                        <h3>Как подключиться к зеленому тарифу:</h3>
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Установка солнечной электростанции</h4>
+                                <p>Наши специалисты подберут оптимальное оборудование и установят СЭС на вашем объекте.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Оформление документов</h4>
+                                <p>Мы подготовим все необходимые документы для подключения к зеленому тарифу.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Заключение договора</h4>
+                                <p>Подписание договора с энергосбытовой компанией на продажу электроэнергии.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tariff-image">
+                    <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Зеленый тариф">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши клиенты</h2>
+                <p>Реализованные проекты солнечных электростанций</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="collector_nakhodka1_01_1024.jpg   "
+                            alt="Частный дом">
+                    </div>
+                    <div class="project-content">
+                        <h3>Частный дом в Краснодаре</h3>
+                        <p>Солнечная электростанция 5 кВт для частного дома с подключением к зеленому тарифу.</p>
+                        <div class="project-meta">
+                            <span>Мощность: 5 кВт</span>
+                            <span>Срок: 2 дня</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="e686bb9dfb8768b12d81b2da52b4acaf.jpeg"
+                            alt="Фермерское хозяйство">
+                    </div>
+                    <div class="project-content">
+                        <h3>Фермерское хозяйство в Ростове</h3>
+                        <p>Автономная солнечная электростанция 30 кВт для фермерского хозяйства.</p>
+                        <div class="project-meta">
+                            <span>Мощность: 30 кВт</span>
+                            <span>Срок: 7 дней</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Кафе">
+                    </div>
+                    <div class="project-content">
+                        <h3>Кафе в Сочи</h3>
+                        <p>Солнечная электростанция 10 кВт для малого бизнеса с системой накопления энергии.</p>
+                        <div class="project-meta">
+                            <span>Мощность: 10 кВт</span>
+                            <span>Срок: 5 дней</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="green-tariff" id="steps" style="background-color: var(--light-blue);">
+        <div class="container">
+            <div class="section-title">
+                <h2>5 шагов к собственной электростанции</h2>
+                <p>Простой путь к энергонезависимости</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Консультация и замер на объекте</h4>
+                        <p>Наш специалист приедет к вам, проведет замеры и проконсультирует по всем вопросам.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Заключение договора</h4>
+                        <p>После согласования всех деталей мы заключаем с вами договор на проектирование и монтаж СЭС.
+                        </p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Монтаж СЭС</h4>
+                        <p>Наши монтажные бригады с допусками СРО выполнят установку солнечной электростанции.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Пуско-наладка</h4>
+                        <p>Проверка работоспособности системы и ввод в эксплуатацию.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Получение дохода от государства</h4>
+                        <p>Подключение к зеленому тарифу и начало продажи излишков электроэнергии.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Контакты</h2>
+                <p>Свяжитесь с нами для консультации</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Наши контакты</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Адрес</h4>
+                            <p>г. Москва, ул. Солнечная, д. 15</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Телефон</h4>
+                            <p>+7 (987) 654-54-56</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@solar.ru</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Режим работы</h4>
+                            <p>Пн-Пт: 9:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Оставить заявку</h3>
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" placeholder="Иван Иванов">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" placeholder="+7 (999) 999-99-99">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" rows="4" placeholder="Ваше сообщение"></textarea>
+                    </div>
+                    <button class="btn" style="width: 100%;">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Компания</h3>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Команда</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Новости</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="#">Солнечные электростанции</a></li>
+                        <li><a href="#">Зеленый тариф</a></li>
+                        <li><a href="#">Техническое обслуживание</a></li>
+                        <li><a href="#">Энергоаудит</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Ресурсы</h3>
+                    <ul>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Документы</a></li>
+                        <li><a href="#">Партнеры</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Обратная связь</a></li>
+                        <li><a href="#">Карта сайта</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 SolarEnergy. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                if (this.getAttribute('href') === '#') return;
+
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Sticky Header on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+
+</html>
